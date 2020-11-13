@@ -12,8 +12,12 @@ function createWindow() {
         },
         icon: './icon/icon.ico'
     })
-
+    mainWindow.hide()
     tray = new Tray('./icon/icon.ico')
+
+    tray.on('click', () => {
+        mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show()
+    })
 
     mainWindow.loadFile('index.html')
 }
