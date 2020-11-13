@@ -5,8 +5,9 @@ let tray = null
 
 function createWindow() {
     const mainWindow = new BrowserWindow({
-        width: 800,
-        height: 600,
+        width: 400,
+        height: 500,
+        frame: false,
         webPreferences: {
             preload: path.join(__dirname, 'preload.js')
         },
@@ -17,6 +18,16 @@ function createWindow() {
 
     tray.on('click', () => {
         mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show()
+    })
+    mainWindow.on('show', () => {
+        let winBounds = mainWindow.getBounds();
+        let trayBounds = tray.getBounds();
+        console.log(winBounds, trayBounds)
+        // Calculating app window coords
+        let x = Math.round(trayBounds.x + (trayBounds.width / 2) - (winBounds.width / 2));
+        let y = Math.round(trayBounds.y / 2.5);
+        console.log(x, y)
+        mainWindow.setPosition(x, y)
     })
 
     mainWindow.loadFile('index.html')
