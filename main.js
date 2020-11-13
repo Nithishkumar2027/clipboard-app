@@ -1,5 +1,7 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, Tray } = require('electron')
 const path = require('path')
+
+let tray = null
 
 function createWindow() {
     const mainWindow = new BrowserWindow({
@@ -7,8 +9,12 @@ function createWindow() {
         height: 600,
         webPreferences: {
             preload: path.join(__dirname, 'preload.js')
-        }
+        },
+        icon: './icon/icon.ico'
     })
+
+    tray = new Tray('./icon/icon.ico')
+
     mainWindow.loadFile('index.html')
 }
 
