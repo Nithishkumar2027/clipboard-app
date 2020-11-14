@@ -18,10 +18,9 @@
     <main id="app">
       <article class="panel is-success">
         <p class="panel-heading">{{title}}</p>
-        <a class="panel-block is-active"> bulma </a>
-        <a class="panel-block"> marksheet </a>
-        <a class="panel-block"> minireset.css </a>
-        <a class="panel-block"> jgthms.github.io </a>
+        <article class="panel-block is-active" v-for="item in history">
+          {{item}}
+        </article>
       </article>
     </main>
     <!-- You can also require other files to run in this process -->
