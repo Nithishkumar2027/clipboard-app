@@ -18,5 +18,9 @@
   "homepage": "https://github.com/Nithishkumar2027/clipboard-app#readme",
   "devDependencies": {
     "electron": "^10.1.5"
+  },
+  "dependencies": {
+    "bulma": "^0.9.1",
+    "vue": "^2.6.12"
   }
 }
