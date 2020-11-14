@@ -16,12 +16,10 @@
   </head>
   <body>
     <main id="app">
-      <article class="panel is-success">
-        <p class="panel-heading">{{title}}</p>
-        <article class="panel-block is-active" v-for="item in history">
-          {{item}}
-        </article>
-      </article>
+      <div class="panel is-success">
+        <p class="panel-heading has-text-centered">{{title}}</p>
+        <a class="panel-block is-active" v-for="item in history"> {{item}} </a>
+      </div>
     </main>
     <!-- You can also require other files to run in this process -->
     <script src="./renderer.js"></script>
