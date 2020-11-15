@@ -2,6 +2,8 @@ const moment = require('moment')
 const { clipboard } = require('electron')
 const Vue = require('vue/dist/vue.js')
 
+const audio = new Audio('./sound.mp3')
+
 const App = new Vue({
     el: '#app',
     data: {
@@ -28,10 +30,15 @@ const App = new Vue({
                     text,
                     clippedAt: moment().format('MMM Do YYYY, h:mm:ss a')
                 })
+                audio.currentTime = 0
+                audio.play()
             }
         },
         itemClicked(item) {
-            clipboard.writeText(item);
+            const index = this.history.indexOf(item)
+            this.history.splice(index, 1)
+            clipboard.writeText(item.text)
+            window.scrollTo(0, 0)
         }
     }
 })
