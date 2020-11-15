@@ -23,7 +23,9 @@
           v-for="item in reversedHistory"
           @click="itemClicked(item)"
         >
-          <pre>{{item}}</pre>
+          <pre>{{item.text}}</pre>
+          <br />
+          <small>{{item.clippedAt}}</small>
         </a>
       </div>
     </main>
